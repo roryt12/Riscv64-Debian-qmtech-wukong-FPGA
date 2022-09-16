@@ -12,7 +12,7 @@ NOTE DO NOT SKIP step 3 if you do not have an already proved toolchain. Debian's
 I'm not getting either "INFO:SoC:Matching AXI MEM data width (XXX)" or "INFO:SoC:Converting MEM data width: XXX to YYY via Wishbone" lines in the output, as the instructions say. 
 I guessed that I have 128 bits based on the DRAM chip (MT41K128M16) that is the same as with digilent arty. Also tongchen126 mentioned linux4d and full2d. 
 
-UPDATE: according to this comemnt from Gabriel, https://github.com/litex-hub/linux-on-litex-rocket/issues/10#issuecomment-1249245531, indeed, the bit width is 128 
+UPDATE: follwing this advice from Gabriel, https://github.com/litex-hub/linux-on-litex-rocket/issues/10#issuecomment-1249245531, indeed, the bit width is 128 
 
 3) I configured litex to include all the cpu variants that I needed and were missing, eg linux4d or full2d
 
