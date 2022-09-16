@@ -89,7 +89,7 @@ Note: I found that the FPGA was too unstable after a while, and had arbitrary cr
 
 I have it now running with vncserver + icewm almost a day and it is ok
 
-
+![Screenshot](vncviewer-snapshot.jpg)
 
 
 Next steps: figure out how to use opensbi+u-boot instead of BBL for more flexible boot.
