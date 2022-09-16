@@ -1,5 +1,4 @@
-# Riscv64-Debian-qmtech-wukong-FPGA
-Running RISCV64 Debian on Litex/Rocket with a qmtech wukong FPGA
+# Running RISCV64 Debian on Litex/Rocket with a qmtech wukong FPGA
 
 Inspired from https://github.com/tongchen126/Boot-Debian-On-Litex-Rocket 
 
