@@ -78,6 +78,10 @@ In my case, systemd worked better that sysvinit. At least with fulld, I'm not ev
 ```
       rcupdate.rcu_cpu_stall_suppress=1
 ```   
+
+UPDATE: after one day, I got again the RCU stalls. So I used the above in boot args to get rid of them. It seems that RCU detection kills the board.
+
+
 In systemd's journald.conf, I used:
 ```
 	Storage=none
@@ -85,8 +89,8 @@ In systemd's journald.conf, I used:
 
 and in logind.conf:
 ```
-	NAutoVTs=1
-	ReserveVT=1
+	NAutoVTs=0
+	ReserveVT=0
 ```
 
 and in /etc/login.defs :
