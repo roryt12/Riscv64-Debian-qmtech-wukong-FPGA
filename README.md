@@ -3,6 +3,7 @@
 Inspired from https://github.com/tongchen126/Boot-Debian-On-Litex-Rocket 
 
 I managed to run a -pretty much- stable RISCV64 Debian with Qmtech's Wukong board (version 2) and Litex/Rocket.
+
 As a development environment I used Debian Buster. The steps I followed are (beware, YMMV) :
 
 1) I Installed Linux on Litex Rocket (https://github.com/litex-hub/linux-on-litex-rocket) and followed the steps 1-4 in "Prerequisites" to install litex.
@@ -110,6 +111,13 @@ Note: I found that the FPGA was too unstable after a while, and had arbitrary cr
 I have it now running with fulld, vncserver + icewm, almost a day and it is ok
 
 ![Screenshot](vncviewer-snapshot.jpg)
+
+
+
+---UPDATE AFTER ALMOST A WEEK 
+
+---Running for almost a week in rescue mode, vncserver, a couple of uxterms, htop and a 7zip Benchmark in a continue loop, with the CPU load at 100%. Another machine in the LAN runs vncviewer, so there is also net traffic. The system is rock solid and responsive. As soon as I try to go to multiuser level, things go South. I use "rcupdate.rcu_cpu_stall_suppress=1" to suppress RCU stalls, but the kernel either Oops in unpredictable programs, or just stops without any sign. I'm pretty sure that this is not a SOC/Hardware/CPU/Litex issue, rather something in the kernel/scheduler ( ? ) . My gut feeling is that there are some assumptions regarding the resources/speed a modern system should have, and in a FPGA @ 100MHz with an in-order CPU, 256MB RAM and SSD for storage/swap, these assumptions do not work well without some adjustment.---
+
 
 
 Next steps: 
