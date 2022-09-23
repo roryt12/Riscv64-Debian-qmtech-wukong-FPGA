@@ -55,7 +55,7 @@ The main difference is the 256MB (vs 128MB) DRAM chip. Also I modified the linux
 8) In step 3 (Building the Kernel), use the first make without initramfs.config:
 ```
 		make ARCH=riscv CROSS_COMPILE=riscv64-unknown-linux-gnu- \
-			litex_rocket_defconfig litex_rocket
+			litex_rocket_defconfig 
 ```
 
 and after edit the resulting .config , search for CONFIG_RISCV_SBI_V01 and change it to 
