@@ -60,7 +60,7 @@ The main difference is the 256MB (vs 128MB) DRAM chip. Also I modified the linux
 
 and after edit the resulting .config , search for CONFIG_RISCV_SBI_V01 and change it to 
 ```
-	CONFIG_RISCV_SBI_V01=yes
+	CONFIG_RISCV_SBI_V01=y
 ```
 
 before you compile the kernel.
