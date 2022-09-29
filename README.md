@@ -108,17 +108,11 @@ Copy your chroot environment to sda3 (mmcblk0p3), put the card in the board, pro
 
 Note: I found that the FPGA was too unstable after a while, and had arbitrary crashes in unpredictable stages. It seems that the situation has been improved after I used a small heatsink. Also placing the board inside the computer room (stable 18 Celsious) helped a lot ;)
 
-I have it now running with fulld, vncserver + icewm, almost a day and it is ok
-
-![Screenshot](vncviewer-snapshot.jpg)
 
 
+---Running for almost a week in rescue mode, vncserver, a couple of uxterms, openssh server and stress, with the CPU load at 100%. Another machine in the LAN runs vncviewer, so there is also constant net traffic. The system is rock solid and responsive. As soon as I try to go to multiuser level, things go bad. I use "rcupdate.rcu_cpu_stall_suppress=1" to suppress RCU stalls, but the kernel either Oops in unpredictable programs, or just stops without any sign. I'm pretty sure that this is not a SOC/Hardware/CPU/Litex issue, rather something in the kernel/scheduler ( ? ) . My gut feeling is that there are some assumptions regarding the resources/speed a modern system should have, and in a FPGA @ 100MHz with an in-order CPU, 256MB RAM and SSD for storage/swap, these assumptions do not work well without some adjustment.---
 
----UPDATE AFTER ALMOST A WEEK 
-
----Running for almost a week in rescue mode, vncserver, a couple of uxterms, htop and a 7zip Benchmark in a continue loop, with the CPU load at 100%. Another machine in the LAN runs vncviewer, so there is also net traffic. The system is rock solid and responsive. As soon as I try to go to multiuser level, things go South. I use "rcupdate.rcu_cpu_stall_suppress=1" to suppress RCU stalls, but the kernel either Oops in unpredictable programs, or just stops without any sign. I'm pretty sure that this is not a SOC/Hardware/CPU/Litex issue, rather something in the kernel/scheduler ( ? ) . My gut feeling is that there are some assumptions regarding the resources/speed a modern system should have, and in a FPGA @ 100MHz with an in-order CPU, 256MB RAM and SSD for storage/swap, these assumptions do not work well without some adjustment.---
-
-
+![Screenshot](Clipboard02.jpg)
 
 Next steps: 
 Figure out how to use opensbi+u-boot instead of BBL for more flexible boot.
