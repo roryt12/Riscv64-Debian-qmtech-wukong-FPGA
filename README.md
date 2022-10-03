@@ -45,6 +45,14 @@ I included ethernet, video terminal and an sdcard.  The commands that I used wer
       --cpu-type rocket  --cpu-variant fulld  --l2-size 2097152 --sys-clk-freq 100e6  --board-version 2
 ```
 
+UPDATE: the option  
+```  
+		--bus-bursting   
+```  
+	
+boosts the performance 30%  ! 
+
+
 5) I used the dts files for nexys4ddr.dts and nexys4ddr_fpu.dts as prototypes to make the corresponding files for the board. 
 The main difference is the 256MB (vs 128MB) DRAM chip. Also I modified the linux command line to make booting easier.
 
