@@ -118,12 +118,14 @@ Note: I found that the FPGA was too unstable after a while, and had arbitrary cr
 
 
 
----Running for almost a week in rescue mode, vncserver, a couple of uxterms, openssh server and stress, with the CPU load at 100%. Another machine in the LAN runs vncviewer, so there is also constant net traffic. The system is rock solid and responsive. As soon as I try to go to multiuser level, things go bad. I use "rcupdate.rcu_cpu_stall_suppress=1" to suppress RCU stalls, but the kernel either Oops in unpredictable programs, or just stops without any sign. I'm pretty sure that this is not a SOC/Hardware/CPU/Litex issue, rather something in the kernel/scheduler ( ? ) . My gut feeling is that there are some assumptions regarding the resources/speed a modern system should have, and in a FPGA @ 100MHz with an in-order CPU, 256MB RAM and SSD for storage/swap, these assumptions do not work well without some adjustment.---
+----- UPDATE 2022-10-12
+Running in rescue level (target) is pretty stable, I can run vncserver (and a client from another machine), a couple of xterms, openssh server (and a client from another machine), continue ping and - most important- stress, and the system was up and responsive after a week with load 100%.
 
 ![Screenshot](Clipboard02.jpg)
 
-Next steps: 
-Figure out how to use opensbi+u-boot instead of BBL for more flexible boot.
+Multiuser levels (targets) is another story. I have a feeling that there are multiple sources that crash the system in multiuser levels.
+One of them MAY be liteUart driver with getty. I can mask-out serial-getty on it, enable openssh server, and boot straight to multiuser and the system is ok - most of the times. If serial-getty is enabled during boot, the system crashes as soon as the login: prompt appears. If I boot with liteUart masked-out, login with ssh ans start it, I can login in the serial console, but as soon as I run - eg - dmesg on the console, the system crashes. Teh same command(s) run on the ssh login without a problem.
+
 
 
  
