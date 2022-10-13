@@ -123,8 +123,13 @@ Running in rescue level (target) is pretty stable, I can run vncserver (and a cl
 
 ![Screenshot](Clipboard02.jpg)
 
-Multiuser levels (targets) is another story. I have a feeling that there are multiple sources that crash the system in multiuser levels.
-One of them MAY be liteUart driver with getty. I can mask-out serial-getty on it, enable openssh server, and boot straight to multiuser and the system is ok - most of the times. If serial-getty is enabled during boot, the system crashes as soon as the login: prompt appears. If I boot with liteUart masked-out, login with ssh ans start it, I can login in the serial console, but as soon as I run - eg - dmesg on the console, the system crashes. Teh same command(s) run on the ssh login without a problem.
+Multiuser levels (targets) is another story. 
+
+I have a feeling that there are multiple sources that crash the system in multiuser levels.One of them MAY be liteUart driver with getty. 
+
+If I mask-out serial-getty , enable openssh server, and boot straight to multiuser and the system is ok - most of the times. As the matter of fact, I run the same test (vncserver, stress etc) for more than a day now and the board seems pretty stable. 
+If serial-getty is enabled during boot, the system crashes as soon as the login: prompt appears. 
+If I boot with liteUart masked-out, login with ssh, start serial-getty ->  I can login in the serial console, but as soon as I run - eg - dmesg , the system crashes. The same command(s) run on the ssh login without a problem. 
 
 
 
