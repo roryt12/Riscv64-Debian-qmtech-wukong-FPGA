@@ -118,16 +118,20 @@ Note: I found that the FPGA was too unstable after a while, and had arbitrary cr
 
 
 
------ UPDATE 2022-10-12
+----- UPDATE 2022-10-17
 Running in rescue level (target) is pretty stable, I can run vncserver (and a client from another machine), a couple of xterms, openssh server (and a client from another machine), continue ping and - most important- stress, and the system was up and responsive after a week with load 100%.
 
 ![Screenshot](Clipboard02.jpg)
 
 Multiuser levels (targets) is another story. 
 
-I have a feeling that there are multiple sources that crash the system in multiuser levels.One of them MAY be liteUart driver with getty. 
+I have a feeling that maybe there are multiple sources that crash the system in multiuser levels. One of them should be liteUart driver with getty. 
 
-If I mask-out serial-getty , enable openssh server, and boot straight to multiuser and the system is ok - most of the times. As the matter of fact, I run the same test (vncserver, stress etc) for more than a day now and the board seems pretty stable. 
+If I mask-out serial-getty , enable openssh server, and boot straight to multiuser and the system is ok - most of the times. As the matter of fact, here is a screenshot with the board booted in mulituser level, with ssh, vncserver, iceWM and stress, running again for 5 days straight: 
+
+![Screenshot](without_liteUart.jpg)
+
+
 If serial-getty is enabled during boot, the system crashes as soon as the login: prompt appears. 
 If I boot with liteUart masked-out, login with ssh, start serial-getty ->  I can login in the serial console, but as soon as I run - eg - dmesg , the system crashes. The same command(s) run on the ssh login without a problem. 
 
